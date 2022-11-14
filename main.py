@@ -12,7 +12,7 @@ provinceList= ["AB","BC","MB","NT","NU","QC","SK","YT"]
 tax = 0.0
 if(elecPlan == "EFIR"):
     if(elecUsed > 1000):
-        elecBill = elecUsed*0.0941
+        elecBill = elecUsed*0.094167
     else:
         elecBill = elecUsed*0.0836
 else:
