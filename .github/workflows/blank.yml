@@ -1,0 +1,31 @@
+# any name you want for the action
+name: automation 
+
+# which events trigger this action
+# here we're saying pull requests to the `main` branch only
+on:
+  pull_request:
+    branches:
+      - master
+
+# you can have one or more jobs
+jobs:
+    # job name
+  format:
+    # an instance to run the job on
+    runs-on: ubuntu-latest
+    # steps start here
+    steps:
+    # this step uses an action from the community to checkout the repo
+    # it will download the repo on the instance running the job
+      - name: GitHub checkout
+        uses: actions/checkout@v2
+
+    # this step runs a command to install `black`
+      - name: Install black
+        run: pip install black==22.*
+        
+    # finally, this step checks to see if all the files
+    # are properly formatted
+      - name: Run black
+        run: black . --check
